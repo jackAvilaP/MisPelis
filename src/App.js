@@ -1,5 +1,6 @@
 import AddMovie from "./components/AddMovie";
 import Card from "./components/Card";
+import Footer from "./components/Footer";
 import Search from "./components/Search";
 
 
@@ -36,10 +37,7 @@ function App() {
         <Search />
         <AddMovie />
       </aside>
-
-      <footer className="footer ">
-        &copy; Practicando JS
-      </footer>
+      <Footer />
     </div>
   );
 }

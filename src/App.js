@@ -1,12 +1,12 @@
+import { useEffect, useState } from "react";
 import AddMovie from "./components/AddMovie";
-import Card from "./components/Card";
 import Footer from "./components/Footer";
+import ListPelis from "./components/ListPelis";
 import Search from "./components/Search";
 
-
 function App() {
-  let items = localStorage.getItem("peliculas");
-  console.log(JSON.stringify(items))
+  const [list, setList] = useState([]);
+
   return (
     <div className="layout">
       {/* Cabecera */}
@@ -19,23 +19,27 @@ function App() {
       {/* */}
       <nav className="nav">
         <ul>
-          <li><a href="/#">Inicio</a></li>
-          <li><a href="/#">Peliculas</a></li>
-          <li><a href="/#">Blog</a></li>
-          <li><a href="/#">Contacto</a></li>
+          <li>
+            <a href="/#">Inicio</a>
+          </li>
+          <li>
+            <a href="/#">Peliculas</a>
+          </li>
+          <li>
+            <a href="/#">Blog</a>
+          </li>
+          <li>
+            <a href="/#">Contacto</a>
+          </li>
         </ul>
       </nav>
 
       {/* Contenido principal */}
-      <section className="content">
-        {/* van las peliculas */}
-
-        <Card />
-      </section>
+      <ListPelis list={list} setList={setList} />
 
       <aside className="side">
         <Search />
-        <AddMovie />
+        <AddMovie setList={setList}/>
       </aside>
       <Footer />
     </div>
